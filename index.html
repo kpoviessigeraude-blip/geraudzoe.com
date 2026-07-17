@@ -570,12 +570,12 @@
  
                 </div>
  
-                <form action="https://formspree.io/f/xrenpooz" method="POST" class="contact-form reveal">
+                <form action="https://formspree.io/f/xrenpooz" method="POST" enctype="multipart/form-data" class="contact-form reveal">
  
-                    <input type="text" placeholder="Votre nom">
-                    <input type="email" placeholder="Votre email" required>
-                    <input type="text" placeholder="Sujet">
-                    <textarea rows="6" placeholder="Votre message"></textarea>
+                    <input type="text" placeholder="Votre nom" name="name" required>
+                    <input type="email" placeholder="Votre email" name="email" required>
+                    <input type="text" placeholder="Sujet" name="subject">
+                    <textarea rows="6" placeholder="Votre message" name="message" required></textarea>
  
                     <button class="btn primary-btn">
                         <span>Envoyer le message</span>
