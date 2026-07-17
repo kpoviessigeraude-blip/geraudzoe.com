@@ -631,6 +631,33 @@
  
     <!-- ================= JAVASCRIPT ================= -->
     <script src="js/script.js"></script>
+    <script>
+  var form = document.getElementById("votre-id-formulaire"); // Ajoutez id="votre-id-formulaire" à votre <form>
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("statut-formulaire"); // Un petit paragraphe <p id="statut-formulaire"></p> pour afficher le succès
+    var data = new FormData(event.target);
+    
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        status.innerHTML = "Merci ! Votre message a bien été envoyé.";
+        form.reset(); // Vide le formulaire
+      } else {
+        status.innerHTML = "Oups ! Il y a eu un problème lors de l'envoi.";
+      }
+    }).catch(error => {
+      status.innerHTML = "Oups ! Impossible de se connecter au serveur.";
+    });
+  }
+  form.addEventListener("submit", handleSubmit)
+</script>
  
 </body>
  
